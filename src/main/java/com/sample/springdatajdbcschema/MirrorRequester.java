@@ -20,13 +20,6 @@ public class MirrorRequester {
         return new HashSet();
     }
 
-    MirrorRequester(final Long id, final String serviceInstanceId, final ConfigServerParameters parameters, final Set<MirrorReference> mirrors) {
-        this.id = id;
-        this.serviceInstanceId = serviceInstanceId;
-        this.parameters = parameters;
-        this.mirrors = mirrors;
-    }
-
     public static MirrorRequester.MirrorRequesterBuilder builder() {
         return new MirrorRequester.MirrorRequesterBuilder();
     }
@@ -45,6 +38,17 @@ public class MirrorRequester {
 
     public Set<MirrorReference> getMirrors() {
         return this.mirrors;
+    }
+
+    public MirrorRequester(final Long id, final String serviceInstanceId, final ConfigServerParameters parameters, final Set<MirrorReference> mirrors) {
+        this.id = id;
+        this.serviceInstanceId = serviceInstanceId;
+        this.parameters = parameters;
+        this.mirrors = mirrors;
+    }
+
+    public MirrorRequester() {
+        this.mirrors = $default$mirrors();
     }
 
     public static class MirrorRequesterBuilder {
